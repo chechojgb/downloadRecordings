@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\downloadRecordings;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,8 @@ Route::get('/', function () {
 
 
 
-Route::get('/test', function () {
-    return view('test');
-});
+Route::get('/viewRecords', [downloadRecordings::class, 'index'])->name('viewRecords');
+Route::get('/questionRecordings', [DownloadRecordings::class, 'questionRecordings'])->name('questionRecordings');
+Route::get('/escuchar/{archivo}', [DownloadRecordings::class, 'escucharGrabacion'])->name('escuchar');
+Route::get('/descargar/{archivo}', [DownloadRecordings::class, 'descargarGrabacion'])->name('descargar');
 
